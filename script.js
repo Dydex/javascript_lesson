@@ -162,15 +162,53 @@
 // console.log("");
 // console.log();
 
-const testData1 = [17, 21, 23, 7];
+// const testData1 = [17, 21, 23, 7];
 
-const printForecast = function (arr) {
-  let ans = "";
-  for (let i = 0; i < arr.length; i++) {
-    ans += `... ${arr[i]}'C in ${i + 1}day${i + 1 > 1 ? "s" : ""} `;
+// const printForecast = function (arr) {
+//   let ans = "";
+//   for (let i = 0; i < arr.length; i++) {
+//     ans += `... ${arr[i]}'C in ${i + 1}day${i + 1 > 1 ? "s" : ""} `;
+//   }
+//   return ans;
+// };
+
+// const result = printForecast(testData1);
+// console.log(result);
+
+// Guess Calculator
+const secretNumber = Math.floor(Math.random() * 20) + 1;
+
+document.querySelector(".check").addEventListener("click", function () {
+  const guess = Number(document.querySelector(".guess").value);
+  let score = Number(document.querySelector(".score").textContent);
+
+  if (!guess) {
+    document.querySelector(".message").textContent = "!No Number";
+  } else if (guess < secretNumber) {
+    document.querySelector(".message").textContent = "Too Low";
+    score--;
+    document.querySelector(".score").textContent = score;
+  } else if (guess > secretNumber) {
+    document.querySelector(".message").textContent = "Too High";
+    score--;
+    document.querySelector(".score").textContent = score;
+  } else if (guess === secretNumber) {
+    document.querySelector(".message").textContent = "!Correct Number";
+    score--;
+    document.querySelector(".score").textContent = score;
+    document.querySelector(".highscore").textContent = score;
+    document.querySelector(".number").textContent = secretNumber;
+    document.body.style.backgroundColor = "green";
+    document.querySelector(".number").style.width = "20rem";
   }
-  return ans;
-};
+});
 
-const result = printForecast(testData1);
-console.log(result);
+document.querySelector(".again").addEventListener("click", function () {
+  document.querySelector(".guess").value = "";
+  document.querySelector(".message").textContent = "Start guessing...";
+  document.querySelector(".score").textContent = 20;
+  document.querySelector(".highscore").textContent = 0;
+  document.body.style.backgroundColor = "#222";
+  document.querySelector(".number").textContent = "?";
+  document.querySelector(".number").style.width = "15rem";
+});
