@@ -93,14 +93,19 @@
 // const cash = prompt("how much are u paying?")
 
 // function calcTip(bill) {
-//     if (bill >= 50 && bill <= 300){
-//         return 0.15 * bill
+//   if (bill >= 50 && bill <= 300) {
+//     function add(a, b) {
+//       return a + b;
 //     }
-//     else {
-//         return 0.20 * bill
-//     }
+
+//     return 0.15 * bill;
+//   } else {
+//     return 0.2 * bill;
+//   }
 // }
-// // calcTip()
+
+// console.log(add(4, 6));
+// calcTip()
 
 // const bills = [125, 555, 44]
 
@@ -239,3 +244,170 @@
 // });
 
 // Modal Game
+// 'use strict';
+
+// const modal = document.querySelector(".modal");
+// const overlay = document.querySelector(".overlay");
+// const btnCloseModal = document.querySelector(".close-modal");
+// const btnsOpenModal = document.querySelectorAll(".show-modal");
+
+// const openModal = function () {
+//   modal.classList.remove("hidden");
+//   overlay.classList.remove("hidden");
+// };
+
+// const closeModal = function () {
+//   modal.classList.add("hidden");
+//   overlay.classList.add("hidden");
+// };
+
+// for (let i = 0; i < btnsOpenModal.length; i++)
+//   btnsOpenModal[i].addEventListener("click", openModal);
+
+// btnCloseModal.addEventListener("click", closeModal);
+// overlay.addEventListener("click", closeModal);
+
+// document.addEventListener("keydown", function (e) {
+//   // console.log(e.key);
+
+//   if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+//     closeModal();
+//   }
+// });
+
+// let dp = "I'm must be better at Js";
+
+// for (let i = 0; i < dp.length; i++) {
+//   console.log(dp[i]);
+// }
+
+// let x = 0;
+// while (x < 5) {
+//   x++;
+//   console.log("Im a frontend developer");
+// }
+
+const myVehicle = {
+  brand: "Ford",
+  model: "Mustang",
+  color: "red",
+};
+
+const updateMyVehicle = {
+  type: "car",
+  year: 2021,
+  color: "yellow",
+};
+
+const myUpdatedVehicle = { ...myVehicle, ...updateMyVehicle };
+// console.log(myUpdatedVehicle);
+
+const weekdays = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+
+const restaurant = {
+  name: "Classico Italiano",
+  location: "Via Angelo Tavanti 23, Firenze, Italy",
+  categories: ["Ittalian", "Pizzeria", "Vegetarian", "Organic"],
+  starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
+  mainMenu: ["Pizza", "Pasta", "Risotto"],
+  openingHours: {
+    [weekdays[3]]: {
+      open: 12,
+      close: 22,
+    },
+    [weekdays[4]]: {
+      open: 11,
+      close: 23,
+    },
+    [weekdays[5]]: {
+      open: 0,
+      close: 24,
+    },
+  },
+
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+};
+
+const { starterMenu: menu } = restaurant;
+// console.log(menu);
+
+// console.log(openingHours);
+
+// openingHours,
+//
+
+// orderDelivery({ starterIndex = 1, mainIndex = 0, time = "20:20", address }) {
+//   console.log(
+//     `Order received! ${this.starterMenu[starterIndex]} and ${[
+//       this.mainIndex,
+//     ]} will be delievered to ${address} at${time}`
+//   );
+// },
+
+// orderPasta(ing1, ing2, ing3) {
+//   console.log(
+//     `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
+//   );
+// },
+
+// orderPizza(mainIngredient, ...otherIngredients) {
+//   console.log(mainIngredient);
+//   console.log(otherIngredients);
+// },
+
+// console.log(restaurant);
+
+// console.log(0 || undefined);
+// console.log(undefined || 0 || "");
+
+const game = {
+  team1: "Bayern Munich",
+  team2: "Borrussia Dortmund",
+  players: [
+    [
+      "Neuer",
+      "Pavard",
+      "Martinez",
+      "Alaba",
+      "Davies",
+      "Kimmich",
+      "Goretzka",
+      "Coman",
+      "Muller",
+      "Gnarby",
+      "Lewandowski",
+    ],
+    [
+      "Burki",
+      "Schulz",
+      "Hummels",
+      "Akanji",
+      "Hakimi",
+      "Weigl",
+      "Witsel",
+      "Hazard",
+      "Brandt",
+      "Sancho",
+      "Gotze",
+    ],
+  ],
+  score: "4:0",
+  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+  date: "Nov 9th, 2037",
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+const [players1, players2] = game.players;
+console.log(players1, players2);
+
+const [gk, ...fieldPlayers] = players1;
+// console.log(gk, fieldPlayers);
+
+const [allPlayers] = game.players;
+// console.log(allPlayers);
